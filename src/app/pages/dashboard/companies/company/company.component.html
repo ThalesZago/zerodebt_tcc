@@ -1,0 +1,28 @@
+<div class="spinner" *ngIf="isLoading">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>
+  <div class="container" fxLayout="column">
+    <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+      <span>
+        {{ (oCompany ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+        {{ 'COMPANY.TITLE' | translate }}
+      </span>
+    </div>
+  
+    <mat-divider></mat-divider>
+  
+     <mat-tab-group>
+      <mat-tab label="{{ 'CUSTOMER.TABS.DATA' | translate }}">
+        <app-tab-data [form]="form" [oCompany]="oCompany"></app-tab-data>
+      </mat-tab>
+    </mat-tab-group>
+    <mat-divider></mat-divider>
+  
+    <div class="footer" fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="10px">
+      <button mat-button (click)="handleBack()">
+        {{ 'ACTIONS.BACK' | translate }}
+      </button>
+      <button mat-flat-button color="primary" (click)="handleSubmit()">
+        {{ (oCompany ? 'ACTIONS.CONFIRM' : 'ACTIONS.CREATE') | translate }}
+      </button>
+    </div>  

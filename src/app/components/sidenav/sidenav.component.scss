@@ -1,0 +1,110 @@
+@import 'variables';
+
+* {
+  user-select: none;
+}
+
+.container {
+  overflow: hidden;
+
+  &_sidenav {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+      url('../../../assets/images/galaxy-zerodebt.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &_user {
+    width: 33px !important;
+    height: 33px !important;
+  }
+
+  &_list {
+    padding: 0 20px;
+    overflow-x: hidden;
+
+    & > a {
+      height: 46px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &_title {
+    margin-top: 10px;
+    color: #c19741;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &--image {
+      width: 70px;
+      height: 56px;
+      margin-right: 15px;
+    }
+  }
+
+  &_profile {
+    color: #ffffff;
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  &_item {
+    color: #ffffff;
+    border-radius: 4px;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    &:focus {
+      background-color: #ffffff;
+      color: #000;
+    }
+  }
+
+  &_subitem {
+    height: 46px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 85% !important;
+    margin-left: auto;
+    color: #ffffff;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    &:focus {
+      background-color: #ffffff;
+      color: #000;
+    }
+  }
+}
+
+.active {
+  background-color: #ffffff;
+  color: #000;
+}
+.mr-8 {
+  margin-left: 20px;
+  color: white;
+}
+::ng-deep .mat-slide-toggle-bar, .mat-slide-toggle-thumb {
+  transition: all 80ms linear;
+  background-color: white;
+}
+
+::ng-deep .darkMode .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: white;
+}
+::ng-deep .darkMode .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: white;
+}

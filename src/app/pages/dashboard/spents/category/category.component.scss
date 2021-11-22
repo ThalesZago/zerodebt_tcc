@@ -1,0 +1,161 @@
+@import 'variables';
+@include angular-material-theme($wn-theme);
+.container {
+  padding: 20px;
+  background: transparent;
+
+  &_body {
+    width: 100%;
+    min-height: calc(100vh - 104px);
+    background: transparent;
+
+    &--actions {
+      padding: 20px 20px 0;
+      background: #212121;
+      color: white;
+      height: auto;
+
+      span {
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+    }
+
+    &--filter::ng-deep .mat-form-field-wrapper {
+      padding: 0;
+      border-color: white;
+    }
+
+    &--spinner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.15);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--table {
+      position: relative;
+      background-color: transparent;
+      overflow-x: scroll;
+
+      table {
+        width: 100%;
+      }
+    }
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  ::ng-deep .mat-mini-fab {
+    box-shadow: none;
+  }
+
+  td,
+  th {
+    width: calc(100% / 1);
+    max-width: 150px;
+    text-overflow: ellipsis;
+    white-space: pre;
+    overflow: hidden;
+  }
+}
+
+.sidenav {
+  width: 20%;
+}
+
+.positive {
+  background-color: map-get($wn-custom-colors, positive) !important;
+}
+
+.success {
+  background-color: map-get($wn-custom-colors, success) !important;
+}
+
+.error {
+  background-color: map-get($wn-custom-colors, error) !important;
+}
+
+.warning {
+  background-color: map-get($wn-custom-colors, warning) !important;
+}
+
+.neutral {
+  background-color: map-get($wn-custom-colors, neutral) !important;
+}
+
+.sidenav {
+  width: 20%;
+}
+
+@media (max-width: 480px) {
+  .mat-icons {
+    width: 15px;
+    height: 15px;
+    margin-left: -8px;
+    margin-top: -10px;
+  }
+  .container {
+    padding: 20px;
+    background: transparent;
+
+    &_body {
+      width: 100%;
+      min-height: calc(100vh - 104px);
+      background: transparent;
+
+      &--actions {
+        padding: 20px 20px 0;
+        background: #212121;
+        color: white;
+        height: auto;
+
+        span {
+          width: 113px;
+          font-size: 14px;
+          font-weight: 500;
+        }
+        button {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &--filter::ng-deep .mat-form-field-wrapper {
+        visibility: hidden;
+        padding: 0;
+        border-color: white;
+      }
+    }
+
+    .mat-form-field {
+      font-size: 8px;
+      width: 100%;
+    }
+
+    ::ng-deep .mat-mini-fab {
+      box-shadow: none;
+    }
+
+    td,
+    th {
+      width: calc(100% / 1);
+      max-width: 150px;
+      text-overflow: ellipsis;
+      white-space: pre;
+      overflow: hidden;
+    }
+  }
+}

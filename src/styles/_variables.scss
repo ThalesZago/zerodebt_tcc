@@ -1,0 +1,144 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$wn-brand-primary: (
+  50: #f8f3e8,
+  100: #ece0c6,
+  200: #e0cba0,
+  300: #d4b67a,
+  400: #caa75e,
+  500: #c19741,
+  600: #bb8f3b,
+  700: #b38432,
+  800: #ab7a2a,
+  900: #9e691c,
+  A100: #ffedd6,
+  A200: #ffd7a3,
+  A400: #ffc070,
+  A700: #ffb557,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$wn-brand-accent: (
+  50: #e0e0e0,
+  100: #b3b3b3,
+  200: #808080,
+  300: #4d4d4d,
+  400: #262626,
+  500: #000000,
+  600: #000000,
+  700: #000000,
+  800: #000000,
+  900: #000000,
+  A100: #a6a6a6,
+  A200: #8c8c8c,
+  A400: #737373,
+  A700: #666666,
+  contrast: (
+    50: #c19741,
+    100: #c19741,
+    200: #c19741,
+    300: #c19741,
+    400: #c19741,
+    500: #c19741,
+    600: #c19741,
+    700: #c19741,
+    800: #c19741,
+    900: #c19741,
+    A100: #c19741,
+    A200: #c19741,
+    A400: #c19741,
+    A700: #c19741,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$wn-primary: mat-palette($wn-brand-primary);
+$wn-accent: mat-palette($wn-brand-accent);
+
+// The warn palette is optional (defaults to red).
+$wn-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$wn-theme: mat-light-theme(
+  (
+    color: (
+      primary: $wn-primary,
+      accent: $wn-accent,
+      warn: $wn-warn,
+    ),
+  )
+);
+
+$angular-dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $wn-primary,
+      accent: $wn-accent,
+      warn: $wn-warn,
+    ),
+  )
+);
+.darkMode {
+  @include angular-material-color($angular-dark-theme);
+}
+
+$wn-custom-colors: (
+  primary: mat-color($wn-brand-primary, 500),
+  primary-contrast: mat-color($wn-brand-accent, 500),
+  error: mat-color($mat-red, 500),
+  success: mat-color($mat-green, 500),
+  positive: mat-color($mat-blue, 500),
+  warning: mat-color($mat-yellow, 500),
+  neutral: mat-color($mat-grey, 500),
+);
+
+$dark-mode-custom-colors: (
+  primary: mat-color($wn-brand-primary, 500),
+  primary-contrast: mat-color($wn-brand-accent, 500),
+  error: mat-color($mat-red, 500),
+  success: mat-color($mat-green, 500),
+  positive: mat-color($mat-blue, 500),
+  warning: mat-color($mat-yellow, 500),
+  neutral: mat-color($mat-grey, 500),
+);
+
+$angular-dark-theme: map-merge(
+  $angular-dark-theme,
+  (
+    $dark-mode-custom-colors: $dark-mode-custom-colors,
+  )
+);
+
+
+$wn-theme: map-merge(
+  $wn-theme,
+  (
+    wn-custom-colors: $wn-custom-colors,
+  )
+);

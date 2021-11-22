@@ -1,0 +1,23 @@
+.header {
+    padding: 20px 60px 20px 30px;
+    position: relative;
+  
+    span {
+      font-size: 2em;
+      font-weight: 500;
+    }
+    &_button {
+      top: 0;
+      right: 0;
+      position: absolute;
+    }
+  }
+  
+  .container {
+    padding: 20px 30px;
+  }
+  
+  .footer {
+    padding: 20px 30px;
+  }
+  

@@ -1,0 +1,72 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+  <div
+    class="container_form"
+    fxFlex="auto"
+    fxFlex.gt-sm="40%"
+    fxFlex.gt-md="30%"
+    fxFlex.gt-lg="20%"
+    fxLayout="column"
+    [formGroup]="form"
+  >
+    <img
+      class="container_logo"
+      src="../../../assets/images/zerodebt astronaut.png"
+      alt="wn investimentos logo"
+      fxFlexAlign="center"
+    />
+
+    <mat-form-field appearance="outline">
+      <mat-label translate>LOGIN.EMAIL</mat-label>
+      <input formControlName="email" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label translate>LOGIN.PASSWORD</mat-label>
+      <input
+        formControlName="password"
+        matInput
+        type="password"
+        [type]="hidePassword ? 'password' : 'text'"
+        required
+      />
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+        <mat-icon>
+          {{ hidePassword ? 'visibility_off' : 'visibility' }}
+        </mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div
+      class="container_actions"
+      fxLayout="column"
+      fxLayout.gt-xs="row"
+      fxLayoutAlign="center flex-start"
+      fxLayoutAlign.gt-xs="space-between center"
+      fxLayoutGap.xs="10px"
+    >
+      <mat-checkbox color="primary" formControlName="remember_me">
+        {{ 'LOGIN.REMEMBER_ME' | translate }}
+      </mat-checkbox>
+
+      <span (click)="handleRecovery()" translate>LOGIN.FORGOT_PASSWORD</span>
+    </div>
+
+    <button
+      class="container_button"
+      mat-flat-button
+      color="primary"
+      (click)="handleFormSubmit()"
+    >
+      <div
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        style="padding: 4px"
+        *ngIf="loading"
+      >
+        <mat-spinner color="accent" diameter="28"></mat-spinner>
+      </div>
+
+      {{ !loading ? ('ACTIONS.ENTER' | translate) : null }}
+    </button>
+  </div>
+</div>

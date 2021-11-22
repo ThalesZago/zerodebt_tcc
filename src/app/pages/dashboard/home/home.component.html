@@ -1,0 +1,59 @@
+<div class="container">
+  <p class="container_welcome">Olá, {{ user?.name }}!</p>
+  <p class="container_welcome">Veja as últimas atualizações de sua conta</p>
+
+  <div class="div-all-charts">
+    <div class="div-all-charts_div-chart1">
+      <canvas
+        baseChart
+        class="div-all-charts_div-chart--chart-bar"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        chartType="line"
+        [plugins]="lineChartPlugins"
+      >
+      </canvas>
+    </div>
+    <div class="div-all-charts_div-chart2">
+      <canvas
+        baseChart
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [colors]="pieChartColors"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend"
+      >
+        >
+      </canvas>
+    </div>
+  </div>
+
+  <div class="cbody">
+    <div class="container_cards">
+      <span class="container_cards--number">
+        {{ oHome.data.bill.late }}
+      </span>
+      <p class="container_cards--paragraph">Contas</p>
+      <p class="container_cards--para2">atrasadas</p>
+    </div>
+    <div class="container_cards">
+      <span class="container_cards--number2">
+        {{ oHome.data.bill.waiting }}
+      </span>
+      <p class="container_cards--paragraph-number2">Contas</p>
+      <p class="container_cards--para2-number2">a vencer</p>
+    </div>
+    <div class="container_cards">
+      <span class="container_cards--number3">
+        {{ oHome.data.bill.paid }}
+      </span>
+      <p class="container_cards--paragraph-number3">Contas</p>
+      <p class="container_cards--para2-number3">pagas</p>
+    </div>
+  </div>
+</div>

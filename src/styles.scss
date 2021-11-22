@@ -1,0 +1,63 @@
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@import 'variables';
+@include angular-material-theme($wn-theme);
+
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial,
+    Lucida Grande, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+mat-dialog-container {
+  padding: 0 !important;
+}
+
+// Changes the snackbar action button to primary color
+.snackbar_error {
+  background-color: map-get($wn-custom-colors, error);
+  color: white;
+}
+
+.snackbar_success {
+  background-color: map-get($wn-custom-colors, success);
+  color: white;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #babac0;
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+// Google Maps
+.map {
+  width: 100%;
+}

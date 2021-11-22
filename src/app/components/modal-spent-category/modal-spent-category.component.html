@@ -1,0 +1,51 @@
+<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    {{ (spentCategory ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+    {{ 'SPENT.CATEGORY.TITLE' | translate }}
+  </span>
+
+  <button mat-button mat-icon-button (click)="handleClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<form
+  class="container"
+  fxLayout="row"
+  [formGroup]="form"
+  (submit)="handleSubmit()"
+>
+  <mat-form-field appearance="fill" fxFlex="100%">
+    <mat-label>{{ 'SPENT.CATEGORY.TITLE' | translate }}</mat-label>
+
+    <input #titleInput matInput required formControlName="title" />
+
+    <mat-icon matPrefix>format_list_bulleted</mat-icon>
+
+    <mat-error *ngIf="title?.touched && title?.errors">
+      {{ 'ERRORS.REQUIRED' | translate }}
+    </mat-error>
+  </mat-form-field>
+</form>
+
+<div
+  class="footer"
+  fxLayout="row"
+  fxLayoutAlign="flex-end center"
+  fxLayoutGap="10px"
+>
+  <button mat-button (click)="handleClose()">
+    {{ 'ACTIONS.CANCEL' | translate }}
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    (click)="handleSubmit()"
+  >
+    {{ (spentCategory ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+  </button>
+</div>

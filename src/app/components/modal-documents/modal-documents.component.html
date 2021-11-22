@@ -1,0 +1,93 @@
+<div class="container" fxLayout="column" fxLayoutGap="20px" [formGroup]="form">
+  <span class="container_title" translate>OPPORTUNITY.DOCUMENTS.TITLE</span>
+
+  <div
+    appDragAndDrop
+    (fileDropped)="handleDocumentUpload($event)"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    class="container_upload"
+  >
+    <input
+      required
+      #documentInput
+      hidden
+      multiple
+      type="file"
+      (change)="handleDocumentUpload($event)"
+    />
+
+    <button
+      mat-fab
+      color="primary"
+      (click)="documentInput.click()"
+      type="button"
+    >
+      <mat-icon color="secondary">attach_file</mat-icon>
+    </button>
+
+    <span class="container_subtitle">
+      {{ 'ACTIONS.DRAG_FILES' | translate }}
+    </span>
+  </div>
+
+  <div
+    appDragAndDrop
+    (fileDropped)="handleDocumentUpload($event)"
+    fxLayout="column"
+    fxLayoutGap="20px"
+    *ngIf="path_name?.value"
+    class="container_list"
+  >
+    <div
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      class="container_list--item"
+    >
+      <span>{{ path_name?.value }}</span>
+
+      <button
+        type="button"
+        mat-icon-button
+        color="link"
+        (click)="handleDocumentDelete()"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-form-field>
+    <mat-label>{{ 'OPPORTUNITY.DOCUMENTS.DESCRIPTION' | translate }}</mat-label>
+
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'OPPORTUNITY.DOCUMENTS.TYPE' | translate }}</mat-label>
+
+    <mat-select formControlName="opportunity_document_types_id">
+      <mat-option [value]="1">CPF</mat-option>
+      <mat-option [value]="2">CNPJ</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div
+  class="footer"
+  fxLayout="row"
+  fxLayoutAlign="flex-end center"
+  fxLayoutGap="10px"
+>
+  <button mat-button (click)="handleClose()">
+    {{ 'ACTIONS.CANCEL' | translate }}
+  </button>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    (click)="handleSubmit()"
+  >
+    {{ 'ACTIONS.ADD' | translate }}
+  </button>
+</div>

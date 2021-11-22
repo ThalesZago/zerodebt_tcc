@@ -1,0 +1,36 @@
+.header {
+    padding: 20px 30px;
+  
+    span {
+      font-size: 2em;
+      font-weight: 500;
+    }
+  }
+  
+  .container {
+    overflow-x: hidden;
+    height: calc(100vh - 64px);
+  
+    &_title {
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+  }
+  
+  .footer {
+    padding: 20px 30px;
+  }
+  
+  .spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

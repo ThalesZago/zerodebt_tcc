@@ -1,0 +1,101 @@
+<div class="container" fxLayout="column">
+  <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>
+      {{ (oSpent ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+      {{ 'SPENT.TITLE' | translate }}
+    </span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <form class="container_form" [formGroup]="form">
+    <div class="container_divzona">
+      <div fxLayout="column" fxFlex="48%">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'SPENT.SPENT_TITLE' | translate }}</mat-label>
+
+          <input #titleInput matInput required formControlName="title" />
+
+          <mat-icon matPrefix>shopping_cart</mat-icon>
+
+          <mat-error *ngIf="title?.touched && title?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'SPENT.SPENT_VALUE' | translate }}</mat-label>
+
+          <input matInput required formControlName="value" />
+
+          <mat-icon matPrefix>attach_money</mat-icon>
+
+          <mat-error *ngIf="value?.touched && value?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxFlex="48%">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'SPENT.DATE' | translate }}</mat-label>
+
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="start_date"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+
+          <mat-icon matPrefix>today</mat-icon>
+
+          <mat-error *ngIf="start_date?.touched && start_date?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'SPENT.SPENT_CATEGORY' | translate }}</mat-label>
+
+          <mat-select formControlName="spent_category_id">
+            <ng-container *ngIf="aSpentCategory">
+              <mat-option
+                *ngFor="let oSpentCategory of aSpentCategory"
+                [value]="oSpentCategory.spent_category_id"
+              >
+                {{ oSpentCategory.title }}
+              </mat-option>
+            </ng-container>
+          </mat-select>
+
+          <mat-icon matPrefix>format_list_bulleted</mat-icon>
+
+          <mat-error
+            *ngIf="spent_category_id?.touched && spent_category_id?.errors"
+          >
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+  <mat-divider></mat-divider>
+
+  <div
+    class="footer"
+    fxLayout="row"
+    fxLayoutAlign="flex-end center"
+    fxLayoutGap="10px"
+  >
+    <button mat-button (click)="handleBack()">
+      {{ 'ACTIONS.BACK' | translate }}
+    </button>
+    <button mat-flat-button color="primary" (click)="handleSubmit()">
+      {{ (oSpent ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    {{ 'ACTIONS.DELETE' | translate }}
+    {{ object.module + '.TITLE' | translate }}
+  </span>
+
+  <button mat-button mat-icon-button (click)="handleClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="container">
+  <span>{{ 'ACTIONS.DELETE_CONFIRM' | translate }} "{{ object.name }}" ?</span>
+</div>
+
+<div
+  class="footer"
+  fxLayout="row"
+  fxLayoutAlign="flex-end center"
+  fxLayoutGap="10px"
+>
+  <button mat-button (click)="handleClose()">
+    {{ 'ACTIONS.CANCEL' | translate }}
+  </button>
+  <button mat-flat-button color="warn" (click)="handleDelete()">
+    {{ 'ACTIONS.DELETE' | translate }}
+  </button>
+</div>

@@ -1,0 +1,37 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.selector {
+  ::ng-deep .mat-form-field-wrapper {
+    margin-top: 10%;
+  }
+}
+
+.notificationDiv {
+  background-color: #FAFAFA;
+  width: 10%;
+  height: 200px;
+  border-radius:10px;
+  box-shadow: 2px 2px 10px black;
+  display: flex;
+  justify-content: center flex-start;
+  flex-direction: column;
+  margin-left: 1600px;
+  margin-bottom: 30px;
+  font-size: 1.3em;
+  opacity: 0.7;
+}
+
+.toolbarClass {
+  position: relative;
+}
+.notification{
+  border-bottom: 2px solid #C19741;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 2px;
+
+}

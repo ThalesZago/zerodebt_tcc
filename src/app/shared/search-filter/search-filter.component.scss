@@ -1,0 +1,17 @@
+.container {
+  padding: 5% 10%;
+
+  span {
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+
+  &_fields {
+    padding: 5% 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}

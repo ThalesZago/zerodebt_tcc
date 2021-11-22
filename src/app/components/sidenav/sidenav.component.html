@@ -1,0 +1,117 @@
+<mat-sidenav-container hasBackdrop="false" class="container">
+  <mat-sidenav
+    [@slide]="fullSized || hovered"
+    class="container_sidenav"
+    mode="side"
+    opened
+    fixedInViewport
+    disableClose
+    (mouseenter)="handleOpen()"
+    (mouseleave)="handleClose()"
+  >
+    <mat-nav-list class="container_list">
+      <div class="container_title" fxLayoutAlign="flex-start center">
+        <img
+          class="container_title--image"
+          src="../../../assets/images/zerodebt astronaut.png"
+          alt="wn investimentos logo photo"
+        />
+
+        <div mat-line [@itemSlide]="fullSized || hovered">Zerodebt</div>
+      </div>
+      <mat-divider
+        style="filter: invert(1); border-top-width: 3px; margin: 10px 0"
+      >
+      </mat-divider>
+
+      <a mat-list-item disableRipple class="container_profile">
+        <img
+          mat-list-avatar
+          class="container_user"
+          [src]="
+            user.thumb
+              ? user.thumb
+              : '../../../assets/images/zerodebt_astronaut.png'
+          "
+          alt="user photo"
+        />
+        <div mat-line [@itemSlide]="fullSized || hovered">{{ user?.name }}</div>
+      </a>
+
+      <mat-divider
+        style="filter: invert(1); border-top-width: 3px; margin: 10px 0"
+      >
+      </mat-divider>
+
+      <ng-container>
+        <a
+          mat-list-item
+          routerLink="home"
+          routerLinkActive="active"
+          class="container_item"
+        >
+          <mat-icon mat-list-icon> home </mat-icon>
+          <div mat-line translate [@itemSlide]="fullSized || hovered">
+            Página Principal
+          </div>
+        </a>
+      </ng-container>
+
+      <ng-container>
+        <a mat-list-item routerLink="spent" class="container_item">
+          <mat-icon mat-list-icon> shopping_cart </mat-icon>
+          <div mat-line translate [@itemSlide]="fullSized || hovered">
+            Gastos
+          </div>
+        </a>
+      </ng-container>
+
+      <ng-container>
+        <a mat-list-item routerLink="spent/category" class="container_item">
+          <mat-icon mat-list-icon> format_list_bulleted </mat-icon>
+          <div mat-line translate [@itemSlide]="fullSized || hovered">
+            Categorias de Gastos
+          </div>
+        </a>
+      </ng-container>
+
+      <ng-container>
+        <a mat-list-item routerLink="bill" class="container_item">
+          <mat-icon mat-list-icon> payment </mat-icon>
+          <div mat-line translate [@itemSlide]="fullSized || hovered">
+            Contas a Pagar
+          </div>
+        </a>
+      </ng-container>
+
+      <ng-container>
+        <a mat-list-item routerLink="bill/category" class="container_item">
+          <mat-icon mat-list-icon> account_balance_wallet </mat-icon>
+          <div mat-line translate [@itemSlide]="fullSized || hovered">
+            Categorias de Contas
+          </div>
+        </a>
+      </ng-container>
+
+      <ng-container>
+        <mat-icon class="mr-8">brightness_5</mat-icon>
+        <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+        </mat-slide-toggle>
+        <mat-icon class="mr-8">bedtime</mat-icon>
+      </ng-container>
+
+      <mat-divider style="filter: invert(1)"></mat-divider>
+
+      <a mat-list-item class="container_item" (click)="handleLogout()">
+        <mat-icon mat-list-icon>exit_to_app</mat-icon>
+        <div mat-line translate [@itemSlide]="fullSized || hovered">
+          ACTIONS.EXIT
+        </div>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content [@contentSlide]="fullSized">
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

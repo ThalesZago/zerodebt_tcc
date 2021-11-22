@@ -1,0 +1,106 @@
+<div class="container" fxLayout="column">
+  <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>
+      {{ (oBill ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+      {{ 'BILL.TITLE' | translate }}
+    </span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <form class="container_form" [formGroup]="form">
+    <div class="container_divzona">
+      <div fxLayout="column" fxFlex="48%">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'BILL.BILL_TITLE' | translate }}</mat-label>
+
+          <input #titleInput matInput required formControlName="title" />
+
+          <mat-icon matPrefix>article</mat-icon>
+
+          <mat-error *ngIf="title?.touched && title?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'BILL.BILL_VALUE' | translate }}</mat-label>
+
+          <input matInput required formControlName="value" />
+
+          <mat-icon matPrefix>attach_money</mat-icon>
+
+          <mat-error *ngIf="value?.touched && value?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxFlex="48%">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'BILL.DATE' | translate }}</mat-label>
+
+          <mat-date-range-input [rangePicker]="picker" required>
+            <input matStartDate formControlName="start_date" />
+            <input matEndDate formControlName="end_date" />
+          </mat-date-range-input>
+
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+
+          <mat-icon matPrefix>today</mat-icon>
+
+          <mat-error
+            *ngIf="
+              (start_date?.touched && start_date?.errors) ||
+              (end_date?.touched && end_date?.errors)
+            "
+          >
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'BILL.BILL_CATEGORY' | translate }}</mat-label>
+
+          <mat-select formControlName="bill_category_id">
+            <ng-container *ngIf="aBillCategory">
+              <mat-option
+                *ngFor="let oBillCategory of aBillCategory"
+                [value]="oBillCategory.bill_category_id"
+              >
+                {{ oBillCategory.title }}
+              </mat-option>
+            </ng-container>
+          </mat-select>
+
+          <mat-icon matPrefix>account_balance_wallet</mat-icon>
+
+          <mat-error
+            *ngIf="bill_category_id?.touched && bill_category_id?.errors"
+          >
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+  <mat-divider></mat-divider>
+
+  <div
+    class="footer"
+    fxLayout="row"
+    fxLayoutAlign="flex-end center"
+    fxLayoutGap="10px"
+  >
+    <button mat-button (click)="handleBack()">
+      {{ 'ACTIONS.BACK' | translate }}
+    </button>
+    <button mat-flat-button color="primary" (click)="handleSubmit()">
+      {{ (oBill ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+    </button>
+  </div>
+</div>

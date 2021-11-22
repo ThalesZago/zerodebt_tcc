@@ -1,0 +1,110 @@
+<form
+  [formGroup]="form"
+  class="container"
+  fxLayout="column"
+  fxLayoutGap="20px"
+  (submit)="handleSubmit()"
+>
+  <span class="container_title" translate>OPPORTUNITY.PRODUCTS.TITLE</span>
+
+  <mat-form-field appearance="outline" class="container_input">
+    <mat-label>
+      {{ 'OPPORTUNITY.PRODUCTS.SEARCH' | translate }}
+    </mat-label>
+
+    <input matInput formControlName="search" />
+
+    <button mat-icon-button matSuffix type="button">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-selection-list
+    class="container_list"
+    [multiple]="false"
+    (selectionChange)="handleProduct($event)"
+  >
+    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="loading">
+      <mat-spinner *ngIf="loading"></mat-spinner>
+    </div>
+
+    <div *ngIf="!loading">
+      <mat-list-option *ngFor="let oProduct of aProducts" [value]="oProduct">
+        {{ oProduct.product }}
+        <mat-divider light></mat-divider>
+      </mat-list-option>
+    </div>
+  </mat-selection-list>
+
+  <div *ngIf="product?.value">
+    <div fxLayout="column" fxLayoutGap="10px">
+      <label>
+        {{ 'OPPORTUNITY.PRODUCTS.DISCOUNT_TYPE' | translate }}
+      </label>
+
+      <mat-radio-group formControlName="discount_type">
+        <div fxLayout="row" fxLayoutGap="20px">
+          <mat-radio-button value="percent">
+            {{ 'OPPORTUNITY.PRODUCTS.DISCOUNT_PERCENT' | translate }}
+          </mat-radio-button>
+
+          <mat-radio-button value="value">
+            {{ 'OPPORTUNITY.PRODUCTS.DISCOUNT_VALUE' | translate }}
+          </mat-radio-button>
+        </div>
+      </mat-radio-group>
+
+      <div fxLayout="row" fxLayoutGap="20px">
+        <mat-form-field fxFlex="calc(50% - 20px)">
+          <mat-label>
+            {{ 'OPPORTUNITY.PRODUCTS.DISCOUNT' | translate }}
+          </mat-label>
+
+          <input
+            *ngIf="discount_type?.value === 'value'"
+            prefix="R$ "
+            mask="separator.2"
+            thousandSeparator="."
+            matInput
+            formControlName="opportunity_value_discount"
+            [dropSpecialCharacters]="false"
+          />
+
+          <input
+            *ngIf="discount_type?.value === 'percent'"
+            suffix="%"
+            mask="percent"
+            matInput
+            formControlName="opportunity_percent_discount"
+            [dropSpecialCharacters]="false"
+          />
+        </mat-form-field>
+
+        <mat-form-field fxFlex="calc(50% - 20px)">
+          <mat-label>{{ 'OPPORTUNITY.PRODUCTS.AMOUNT' | translate }}</mat-label>
+
+          <input matInput formControlName="quantity" mask="999" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div
+  class="footer"
+  fxLayout="row"
+  fxLayoutAlign="flex-end center"
+  fxLayoutGap="10px"
+>
+  <button mat-button (click)="handleClose()">
+    {{ 'ACTIONS.CANCEL' | translate }}
+  </button>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    (click)="handleSubmit()"
+  >
+    {{ 'ACTIONS.SELECT' | translate }}
+  </button>
+</div>

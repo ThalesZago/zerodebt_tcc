@@ -1,0 +1,51 @@
+<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    {{ (opportunityGroup ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+    {{ 'GROUP.GROUP' | translate }}
+  </span>
+
+  <button mat-button mat-icon-button (click)="handleClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<form
+  class="container"
+  fxLayout="row"
+  [formGroup]="form"
+  (submit)="handleSubmit()"
+>
+  <mat-form-field appearance="fill" fxFlex="100%">
+    <mat-label>{{ 'GROUP.TITLE' | translate }}</mat-label>
+
+    <input #groupInput matInput required formControlName="group" />
+
+    <mat-icon matPrefix>location_on</mat-icon>
+
+    <mat-error *ngIf="group?.touched && group?.errors">
+      {{ 'ERRORS.REQUIRED' | translate }}
+    </mat-error>
+  </mat-form-field>
+</form>
+
+<div
+  class="footer"
+  fxLayout="row"
+  fxLayoutAlign="flex-end center"
+  fxLayoutGap="10px"
+>
+  <button mat-button (click)="handleClose()">
+    {{ 'ACTIONS.CANCEL' | translate }}
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    (click)="handleSubmit()"
+  >
+    {{ (opportunityGroup ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+  </button>
+</div>

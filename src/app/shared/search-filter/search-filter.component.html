@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div [formGroup]="oForm" fxLayout="column" fxLayoutAlign="start start">
+    <span fxFlex="100%" translate>CUSTOMER.LIST</span>
+    <div class="container_fields" fxLayout="column" fxLayoutAlign="start center" fxFlex="100%">
+      <div formArrayName="campos" *ngFor="let oCampo of getControls(); let i = index" fxFlex="100%">
+        <mat-form-field
+          *ngIf="aCampos[i].type === 'text' || aCampos[i].type === 'document' || aCampos[i].type === 'phone'"
+          appearance="fill" fxFlex="100%">
+          <mat-label>{{ aCampos[i].label | translate }}</mat-label>
+          <input matInput [formControlName]="i" />
+        </mat-form-field>
+
+        <mat-form-field *ngIf="aCampos[i].type === 'map'" appearance="fill" fxFlex="100%">
+          <mat-label>{{ aCampos[i].label | translate }}</mat-label>
+          <mat-select [formControlName]="i">
+            <mat-option *ngFor="let oOption of aCampos[i].selections" [value]="oOption.id">
+              {{oOption.category}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- <mat-form-field *ngIf="aCampos[i].type === 'date'" appearance="fill" fxFlex="100%">
+          <mat-label>{{ aCampos[i].label | translate }}</mat-label>
+          <input matInput [matDatepicker]="picker" [formControlName]="i">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+      </div>
+    </div>
+  </div>
+  <div class="footer" fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="20px">
+    <button mat-flat-button (click)="onReset()">
+      {{ 'ACTIONS.CLEAR'| translate }}
+    </button>
+    <button mat-flat-button color="primary" (click)="onSave()">
+      {{ 'ACTIONS.SEARCH'| translate }}
+    </button>
+  </div>
+</div>

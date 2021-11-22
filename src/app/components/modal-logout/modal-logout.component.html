@@ -1,0 +1,35 @@
+<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    {{ 'LOGOUT.TITLE' | translate }}
+  </span>
+
+  <button
+    mat-button
+    mat-icon-button
+    (click)="handleClose()"
+    class="header_button"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="container">
+  <span>{{ 'LOGOUT.LOGOUT_CONFIRM' | translate }}</span> <br />
+  <span>{{ 'LOGOUT.LOGOUT_CONFIRM_SECOND' | translate }}</span>
+</div>
+
+<div
+  class="footer"
+  fxLayout="row"
+  fxLayoutAlign="flex-end center"
+  fxLayoutGap="10px"
+>
+  <button mat-button (click)="handleClose()">
+    {{ 'ACTIONS.CANCEL' | translate }}
+  </button>
+  <button mat-flat-button color="warn" (click)="handleLogout()">
+    {{ 'ACTIONS.YES' | translate }}
+  </button>
+</div>

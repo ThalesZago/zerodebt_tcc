@@ -1,0 +1,64 @@
+<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    {{ (tipCategory ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+    {{ 'TIP.CATEGORY.TITLE' | translate }}
+  </span>
+
+  <button mat-button mat-icon-button (click)="handleClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<form
+  class="container"
+  fxLayout="column"
+  fxLayoutAlign="center stretch"
+  [formGroup]="form"
+  (submit)="handleSubmit()"
+>
+  <mat-form-field appearance="fill" fxFlex="100%">
+    <mat-label>{{ 'TIP.CATEGORY.CATEGORY' | translate }}</mat-label>
+
+    <input #categoryInput matInput required formControlName="category" />
+
+    <mat-icon matPrefix>batch_prediction</mat-icon>
+
+    <mat-error *ngIf="category?.touched && category?.errors">
+      {{ 'ERRORS.REQUIRED' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" floatLabel="always" fxFlex="100%">
+    <mat-label>{{ 'TIP.CATEGORY.STATUS' | translate }}</mat-label>
+
+    <textarea matInput hidden></textarea>
+
+    <mat-slide-toggle formControlName="status">
+      {{ (status?.value ? 'TABLE.ACTIVE' : 'TABLE.INACTIVE') | translate }}
+    </mat-slide-toggle>
+
+    <mat-icon matPrefix>power_settings_new</mat-icon>
+  </mat-form-field>
+</form>
+
+<div
+  class="footer"
+  fxLayout="row"
+  fxLayoutAlign="flex-end center"
+  fxLayoutGap="10px"
+>
+  <button mat-button (click)="handleClose()">
+    {{ 'ACTIONS.CANCEL' | translate }}
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    (click)="handleSubmit()"
+  >
+    {{ (tipCategory ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+  </button>
+</div>

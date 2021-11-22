@@ -1,0 +1,346 @@
+<form class="container" [formGroup]="oForm">
+  <div class="container_divisor" fxLayoutGap="20px">
+    <div fxLayout="column" fxFlex="calc(50% - 20px)">
+      <div class="container_separator" fxLayoutGap="20px">
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          class="container_separator--formSize"
+        >
+          <mat-label>{{ 'USER.NAME' | translate }}</mat-label>
+
+          <input #costumerInput matInput required formControlName="name" />
+
+          <mat-icon matPrefix>person</mat-icon>
+
+          <mat-error *ngIf="name?.touched && name?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          class="container_separator--formSize"
+        >
+          <mat-label>{{ 'USER.LAST_NAME' | translate }}</mat-label>
+
+          <input matInput required formControlName="last_name" />
+
+          <mat-icon matPrefix>people</mat-icon>
+
+          <mat-error *ngIf="last_name?.touched && last_name?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="container_separator" fxLayoutGap="20px">
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          class="container_separator--formSize"
+        >
+          <mat-label>{{ 'USER.EMAIL' | translate }}</mat-label>
+
+          <input matInput required formControlName="email" />
+
+          <mat-icon matPrefix>email</mat-icon>
+
+          <mat-error *ngIf="email?.touched && email?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="container_separator" fxLayoutGap="20px">
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          class="container_separator--formSize"
+        >
+          <mat-label>{{ 'USER.DOCUMENT' | translate }}</mat-label>
+
+          <input matInput required formControlName="document" mask="CPF_CNPJ" />
+
+          <mat-icon matPrefix>folder_shared</mat-icon>
+
+          <mat-error *ngIf="document?.touched && document?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          class="container_separator--formSize"
+        >
+          <mat-label>{{ 'USER.CELLPHONE' | translate }}</mat-label>
+
+          <input
+            matInput
+            required
+            formControlName="cellphone"
+            mask="(00) 00000-0000"
+          />
+
+          <mat-icon matPrefix>smartphone</mat-icon>
+
+          <mat-error *ngIf="cellphone?.touched && cellphone?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxFlex="auto">
+        <div
+          [ngClass]="
+            thumb?.touched && thumb?.errors
+              ? 'container_upload--error container_upload'
+              : 'container_upload'
+          "
+          appDragAndDrop
+          (fileDropped)="handleFileUpload($event)"
+        >
+          <span class="container_upload--title">
+            {{ 'USER.MEDIA' | translate }}
+          </span>
+
+          <input
+            required
+            #fileInput
+            hidden
+            type="file"
+            (change)="handleFileUpload($event)"
+          />
+
+          <button
+            mat-fab
+            color="primary"
+            (click)="fileInput.click()"
+            type="button"
+            class="container_upload--btnButton"
+          >
+            <mat-icon color="secondary" class="container_upload--icon"
+              >image</mat-icon
+            >
+          </button>
+
+          <span class="container_upload--text">
+            {{ 'ACTIONS.DRAG_FILES' | translate }}
+          </span>
+        </div>
+
+        <mat-error
+          *ngIf="thumb?.touched && thumb?.errors"
+          class="container_error"
+        >
+          {{ 'ERRORS.REQUIRED' | translate }}
+        </mat-error>
+
+        <div
+          class="container_list"
+          *ngIf="thumb.value"
+          appDragAndDrop
+          (fileDropped)="handleFileUpload($event)"
+        >
+          <div class="container_list--item">
+            <img (click)="handleModal(thumb.value)" [src]="thumb.value" />
+
+            <button
+              type="button"
+              mat-mini-fab
+              color="link"
+              class="container_list--icon"
+              (click)="clearImage()"
+            >
+              <mat-icon class="container_list--x">close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="column" fxFlex="calc(50% - 20px)">
+      <mat-form-field appearance="fill" class="container_separator--formSize">
+        <mat-label>{{ 'USER.COUNTRY' | translate }}</mat-label>
+
+        <mat-select
+          required
+          formControlName="country"
+          (selectionChange)="fetchStates($event.value)"
+        >
+          <mat-select-filter
+            [placeholder]="'ACTIONS.FILTER' | translate"
+            [noResultsMessage]="'TABLE.NO_DATA_SEARCH' | translate"
+            [array]="aCountries"
+            [displayMember]="'name'"
+            (filteredReturn)="aFilteredCountries = $event"
+          ></mat-select-filter>
+
+          <mat-option
+            *ngFor="let oCountry of aFilteredCountries"
+            [value]="oCountry.name"
+          >
+            {{ oCountry.name }}
+          </mat-option>
+        </mat-select>
+
+        <mat-icon matPrefix>public</mat-icon>
+
+        <mat-error *ngIf="country?.touched && country?.errors">
+          {{ 'ERRORS.REQUIRED' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <div class="container_separator" fxLayoutGap="20px">
+        <mat-form-field
+          class="container_separator--formSize"
+          appearance="fill"
+          *ngIf="country.value === 'Brasil'"
+          fxFlex="calc(50% - 20px)"
+        >
+          <mat-label>{{ 'USER.STATE' | translate }}</mat-label>
+
+          <mat-select
+            required
+            formControlName="state"
+            (selectionChange)="fetchCities($event.value)"
+          >
+            <mat-select-filter
+              [placeholder]="'ACTIONS.FILTER' | translate"
+              [noResultsMessage]="'TABLE.NO_DATA_SEARCH' | translate"
+              [array]="aStates"
+              [displayMember]="'name'"
+              (filteredReturn)="aFilteredStates = $event"
+            ></mat-select-filter>
+
+            <mat-option
+              *ngFor="let oState of aFilteredStates"
+              [value]="oState.name"
+            >
+              {{ oState.name }}
+            </mat-option>
+          </mat-select>
+
+          <mat-icon matPrefix>map</mat-icon>
+
+          <mat-error [hidden]="state?.touched && state?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          class="container_separator--formSize"
+          appearance="fill"
+          *ngIf="country.value !== 'Brasil'"
+          fxFlex="calc(50% - 20px)"
+        >
+          <mat-label>{{ 'USER.STATE' | translate }}</mat-label>
+
+          <input matInput required formControlName="state" />
+
+          <mat-icon matPrefix>map</mat-icon>
+
+          <mat-error [hidden]="state?.touched && state?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          class="container_separator--formSize"
+          appearance="fill"
+          *ngIf="country.value === 'Brasil'"
+          fxFlex="calc(50% - 20px)"
+        >
+          <mat-label>{{ 'USER.CITY' | translate }}</mat-label>
+
+          <mat-select required formControlName="city">
+            <mat-select-filter
+              [placeholder]="'ACTIONS.FILTER' | translate"
+              [noResultsMessage]="'TABLE.NO_DATA_SEARCH' | translate"
+              [array]="aCities"
+              [displayMember]="'name'"
+              (filteredReturn)="aFilteredCities = $event"
+            ></mat-select-filter>
+            <mat-option
+              *ngFor="let oCity of aFilteredCities"
+              [value]="oCity.name"
+            >
+              {{ oCity.name }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matPrefix>my_location</mat-icon>
+          <mat-error *ngIf="city?.touched && city?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          class="container_separator--formSize"
+          appearance="fill"
+          *ngIf="country.value !== 'Brasil'"
+          fxFlex="calc(50% - 20px)"
+        >
+          <mat-label>{{ 'USER.CITY' | translate }}</mat-label>
+          <input matInput required formControlName="city" />
+          <mat-icon matPrefix>my_location</mat-icon>
+          <mat-error *ngIf="city?.touched && city?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="20px">
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          *ngIf="!oUser"
+        >
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-label>{{ 'USER.COMPANY' | translate }}</mat-label>
+          <mat-select formControlName="companies" multiple>
+            <mat-option
+              [value]="oCompanie.id"
+              *ngFor="let oCompanie of aCompanies"
+            >
+              {{ oCompanie.company_name | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="20px">
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          *ngIf="!oUser"
+        >
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-label>{{ 'USER.SECTOR' | translate }}</mat-label>
+          <mat-select formControlName="sectors" multiple>
+            <mat-option [value]="oSector.id" *ngFor="let oSector of aSectors">
+              {{ oSector.sector_name | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          fxFlex="calc(50% - 20px)"
+          *ngIf="!oUser"
+        >
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-label>{{ 'USER.PROFILE' | translate }}</mat-label>
+          <mat-select formControlName="profiles" multiple>
+            <mat-option
+              [value]="oProfile.id"
+              *ngFor="let oProfile of aProfiles"
+            >
+              {{ oProfile.profile | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</form>

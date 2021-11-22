@@ -1,0 +1,144 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="emailForm" [editable]="false">
+    <form [formGroup]="emailForm">
+      <ng-template matStepLabel>
+        {{ 'RECOVERY.TITLE_EMAIL' | translate }}
+      </ng-template>
+
+      <div fxLayout="row wrap" fxLayoutAlign="flex-end center">
+        <mat-form-field fxFlex="100%" appearance="outline">
+          <mat-label translate>RECOVERY.EMAIL</mat-label>
+
+          <input matInput formControlName="email" required />
+        </mat-form-field>
+
+        <button
+          fxFlex="25%"
+          mat-flat-button
+          color="primary"
+          (click)="handleNextStep(stepper)"
+        >
+          <div
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            style="padding: 4px"
+            *ngIf="loading"
+          >
+            <mat-spinner color="accent" diameter="28"></mat-spinner>
+          </div>
+
+          {{ !loading ? ('ACTIONS.NEXT' | translate) : null }}
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="pinForm" [editable]="false">
+    <form [formGroup]="pinForm">
+      <ng-template matStepLabel>
+        {{ 'RECOVERY.TITLE_PIN' | translate }}
+      </ng-template>
+
+      <div fxLayout="row wrap" fxLayoutAlign="flex-end center">
+        <mat-form-field fxFlex="100%" appearance="outline">
+          <mat-label translate>RECOVERY.PIN</mat-label>
+
+          <input matInput formControlName="pin" required />
+        </mat-form-field>
+
+        <button
+          fxFlex="25%"
+          mat-flat-button
+          color="primary"
+          (click)="handleNextStep(stepper)"
+        >
+          <div
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            style="padding: 4px"
+            *ngIf="loading"
+          >
+            <mat-spinner color="accent" diameter="28"></mat-spinner>
+          </div>
+
+          {{ !loading ? ('ACTIONS.NEXT' | translate) : null }}
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="passwordForm" [editable]="false">
+    <form [formGroup]="passwordForm">
+      <ng-template matStepLabel>
+        {{ 'RECOVERY.TITLE_PASSWORD' | translate }}
+      </ng-template>
+
+      <div fxLayout="row wrap" fxLayoutAlign="flex-end center">
+        <mat-form-field fxFlex="100%" appearance="outline">
+          <mat-label translate>RECOVERY.PASSWORD_PASS</mat-label>
+
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            type="password"
+            formControlName="password"
+            required
+          />
+
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+          >
+            <mat-icon>
+              {{ hidePassword ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100%" appearance="outline">
+          <mat-label translate>RECOVERY.PASSWORD_CONFIRM</mat-label>
+
+          <input
+            required
+            matInput
+            [type]="hidePasswordConfirm ? 'password' : 'text'"
+            formControlName="password_confirm"
+          />
+
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePasswordConfirm = !hidePasswordConfirm"
+          >
+            <mat-icon>
+              {{ hidePasswordConfirm ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+
+          <mat-error *ngIf="password_confirm?.errors?.notSame">
+            {{ 'ERRORS.NOT_SAME' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          fxFlex="25%"
+          mat-flat-button
+          color="primary"
+          (click)="handleNextStep(stepper)"
+        >
+          <div
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            style="padding: 4px"
+            *ngIf="loading"
+          >
+            <mat-spinner color="accent" diameter="28"></mat-spinner>
+          </div>
+
+          {{ !loading ? ('ACTIONS.NEXT' | translate) : null }}
+        </button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,38 @@
+@import 'variables';
+
+.container {
+  height: 100vh;
+  background-image: url('../../../assets/images/galaxy-zerodebt.png');
+
+  &_form {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 20px 40px;
+    margin: 20px;
+  }
+
+  &_logo {
+    width: 200px;
+    height: 160px;
+    border-radius: 100%;
+  }
+
+  &_actions {
+    & span {
+      font-weight: lighter;
+      font-style: italic;
+      color: #8b8b8b;
+
+      &:hover {
+        color: map-get($wn-custom-colors, primary);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &_button {
+    margin: 20px 0 0;
+    text-transform: uppercase;
+  }
+}

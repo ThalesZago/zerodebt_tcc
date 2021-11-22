@@ -1,0 +1,35 @@
+<div class="spinner" *ngIf="isLoading">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>
+<div class="container" fxLayout="column">
+  <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>
+      {{ (oUser ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+      {{ 'USER.TITLE' | translate }}
+    </span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-tab-group>
+    <mat-tab label="{{ 'USER.TABS.DATA' | translate }}">
+      <app-tab-data [oForm]="oForm" [oUser]="oUser"></app-tab-data>
+    </mat-tab>
+  </mat-tab-group>
+
+  <mat-divider></mat-divider>
+
+  <div
+    class="footer"
+    fxLayout="row"
+    fxLayoutAlign="flex-end center"
+    fxLayoutGap="10px"
+  >
+    <button mat-button (click)="handleBack()">
+      {{ 'ACTIONS.BACK' | translate }}
+    </button>
+    <button mat-flat-button color="primary" (click)="handleSubmit()">
+      {{ (oUser ? 'ACTIONS.EDIT' : 'ACTIONS.CREATE') | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.container {
+  padding: 20px;
+
+  &_title {
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+
+  &_input {
+    &::ng-deep .mat-form-field-wrapper {
+      padding: 0;
+    }
+  }
+
+  &_list {
+    max-height: 30vh;
+    overflow-y: scroll;
+  }
+}
+
+.footer {
+  padding: 0 30px 20px;
+}

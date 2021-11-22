@@ -1,0 +1,545 @@
+{
+  "paid": "Pago",
+  "late": "Atrasado",
+  "waiting": "Aguardando Pagamento",
+
+  "BILL": {
+    "LIST": "Lista de Contas",
+    "BILL_TITLE": "Nome da Conta",
+    "BILL_VALUE": "Valor",
+    "DATE": "Período da Conta",
+    "BILL_CATEGORY": "Categoria de Conta",
+    "TITLE": "Conta",
+    "CHANGE": {
+      "STATUS": {
+        "SUCCESS": "Status alterado com sucesso",
+        "ERROR": "Erro ao alterar status, contate um administrador"
+      }
+    },
+    "EDIT": {
+      "SUCCESS": "Conta editada com sucesso",
+      "ERROR": "Erro ao editar conta, contate um administrador"
+    },
+    "CREATE": {
+      "SUCCESS": "Conta criada com sucesso",
+      "ERROR": "Erro ao criar conta, contate um administrador"
+    },
+    "CATEGORY": {
+      "TITLE": "Categoria de contas",
+      "LIST": "Lista de Categoria de contas",
+      "CREATE": {
+        "SUCCESS": "Categoria de Conta criada com sucesso",
+        "ERROR": "Erro ao criar categoria de conta, contate um administrador!"
+      },
+      "EDIT": {
+        "SUCCESS": "Categoria de Conta edita com sucesso",
+        "ERROR": "Erro ao editar categoria de conta, contate um administrador!"
+      }
+    }
+  },
+  "SPENT": {
+    "LIST": "Lista de Gastos",
+    "SPENT_TITLE": "Nome do Gasto",
+    "SPENT_VALUE": "Valor",
+    "DATE": "Data",
+    "SPENT_CATEGORY": "Categoria do Gasto",
+    "TITLE": "Gasto",
+    "EDIT": {
+      "SUCCESS": "Gasto editado com sucesso",
+      "ERROR": "Erro ao editar gasto, contate um administrador"
+    },
+    "CREATE": {
+      "SUCCESS": "Gasto criado com sucesso",
+      "ERROR": "Erro ao criar gasto, contate um administrador"
+    },
+    "CATEGORY": {
+      "TITLE": "Categoria de gastos",
+      "LIST": "Lista de Categoria de gastos",
+      "CREATE": {
+        "SUCCESS": "Categoria de gastos criada com sucesso",
+        "ERROR": "Erro ao criar categoria de gastos, contate um administrador!"
+      },
+      "EDIT": {
+        "SUCCESS": "Categoria de gastos editada com sucesso",
+        "ERROR": "Erro ao editar categoria de gastos, contate um administrador!"
+      }
+    }
+  },
+  "USER": {
+    "FOUND": "Não foi possível cadastrar este usuário, ele já existe no sistema",
+    "TITLE": "Usuário",
+    "LIST": "Lista de Usuários",
+    "NAME": "Nome",
+    "LAST_NAME": "Sobrenome",
+    "EMAIL": "E-mail",
+    "DOCUMENT": "Documento",
+    "CELLPHONE": "Telefone",
+    "COUNTRY": "País",
+    "STATE": "Estado",
+    "CITY": "Cidade",
+    "SECTOR": "Setor do Usuário",
+    "PROFILE": "Perfil de Usuário",
+    "COMPANY": "Empresa do Usuário",
+    "MEDIA": "Foto do usuário",
+    "MEDIA.ERROR": "Erro ao fazer upload da imagem, por favor utilize apenas imagens com tamanho até 2Mb",
+    "MEDIA.FILE": "Por favor, utilize imagens com tamanho máximo de 2Mb",
+    "NOT.FOUND": "Email não cadastrado",
+    "UNAUTHORIZED": "Senha incorreta",
+    "MAX.ATTEMPTS": "Você realizou login muitas vezes e seu usuário foi bloqueado. Aguarde para tentar novamente",
+    "ONLINE.IS.ONLINE": "Usuário já está logado",
+    "PASSWORD": {
+      "NOT.ACCEPTABLE": "Senhas não coincidem"
+    },
+    "TABS": {
+      "DATA": "Dados Principais"
+    },
+    "UPDATED": {
+      "SUCCESS": "Usuário editado com sucesso",
+      "ERROR": "Erro ao editar usuário, contate um administrador"
+    },
+    "CREATED": {
+      "SUCCESS": "Usuário criado com sucesso",
+      "ERROR": "Erro ao criar usuário, contate um administrador"
+    }
+  },
+  "INVITATION": {
+    "CREATE": {
+      "SUCCESS": "Convite criado com sucesso",
+      "ERROR": "Erro ao criar convite, contate um administrador"
+    },
+    "UPDATE": {
+      "SUCCESS": "Convite editado com sucesso",
+      "ERROR": "Erro ao editar convite, contate um administrador"
+    }
+  },
+  "LOGOUT": {
+    "TITLE": "Encerrar sessão",
+    "LOGOUT_CONFIRM": "Este usuário já está logado.",
+    "LOGOUT_CONFIRM_SECOND": "Deseja encerrar esta sessão?",
+    "USER.ONLINE.SUCCESS": "Sessão encerrada"
+  },
+  "ACTIONS": {
+    "ENTER": "Entrar",
+    "CLOSE": "Fechar",
+    "YES": "Sim",
+    "EXIT": "Sair",
+    "NEXT": "Próximo",
+    "BACK": "Voltar",
+    "SAVE": "Salvar",
+    "ADD": "Adicionar",
+    "DELETE": "Excluir",
+    "REGISTRY": "Cadastrar",
+    "DELETE_CONFIRM": "Você tem certeza que deseja excluir",
+    "FILTER": "Filtrar",
+    "CANCEL": "Cancelar",
+    "EDIT": "Editar",
+    "CONFIRM": "Confirmar",
+    "STATUS": "Alterar Status",
+    "CREATE": "Criar",
+    "SELECT": "Selecionar",
+    "SELECT_FILE": "Escolher Arquivo",
+    "SELECT_FILES": "Escolher Arquivos",
+    "DRAG_FILES": "Ou arraste arquivos até aqui",
+    "EMPTY_FILE": "Nenhum arquivo selecionado",
+    "SELECTED_FILE": "Arquivos selecionados",
+    "HELP_MAPS": "Como utilizar este campo?",
+    "INVITE_RESEND": "Reenviar convite",
+    "SEARCH": "Pesquisar",
+    "CLEAR": "Limpar"
+  },
+  "TABLE": {
+    "ID": "ID",
+    "NAME": "Nome",
+    "LAST_NAME": "Sobrenome",
+    "PROFESSION": "Profissão",
+    "GROUP": "Grupo",
+    "TITLE": "Título",
+    "IMAGE": "Imagem",
+    "CATEGORY": "Categoria",
+    "PRODUCT": "Produto",
+    "PRICE": "Preço Unitário",
+    "DISCOUNT": "Desconto",
+    "SUBTOTAL": "Subtotal",
+    "DISCOUNT_OPPORTUNITY": "Desconto da Oportunidade",
+    "AMOUNT_OPPORTUNITY": "Quantidade",
+    "DOCUMENT": "Documento",
+    "DESCRIPTION": "Descrição",
+    "CODE": "Código do Convite",
+    "COSTUMER_NAME": "Nome do Convidado",
+    "INVITATION_CREATED_AT": "Convite enviado em",
+    "CODE_USED": "Código Usado",
+    "DOCUMENT_TYPE": "Tipo do Documento",
+    "CITY": "Cidade",
+    "CELLPHONE": "Telefone",
+    "EMAIL": "Email",
+    "CREATED": "Criado em",
+    "UPDATED": "Ultima atualização",
+    "DATE_START": "Data Inicial",
+    "DATE_END": "Data Final",
+    "ACTIONS": "Ações",
+    "STATUS": "Status",
+    "USED": "Utilizado",
+    "UNUSED": "Não utilizado",
+    "VALUE": "Valor",
+    "ACTIVE": "Ativo",
+    "INACTIVE": "Inativo",
+    "TOTAL": "Total",
+    "NO_DATA": "Nenhum dado cadastrado",
+    "NO_DATA_SEARCH": "Nenhum dado encontrado com o valor",
+    "COMPANY_NAME": "Nome da Empresa",
+    "FANTASY_NAME": "Razão Social",
+    "COMPANY_CODE": "Código da Empresa",
+    "COMPANY_EMAIL": "E-mail da Empresa",
+    "TYPE_SENDING": "Tipo de Envio",
+    "CREATED_AT": "Data de Criação",
+    "SEND_CUSTOMER_OPPORTUNITY": "Status do Interesse"
+  },
+  "INTEREST": {
+    "LIST": "Lista de Interesses"
+  },
+  "ERRORS": {
+    "NOT_SAME": "As senhas não coincidem",
+    "REQUIRED": "Campo obrigatório",
+    "INVALID_FILE": "Arquivo inválido",
+    "SERVER": "Erro de comunicação com o Servidor. Entre em contato com um administrador caso continue vendo este erro"
+  },
+  "LOGIN": {
+    "EMAIL": "Email",
+    "PASSWORD": "Senha",
+    "LOGIN": "Entrar",
+    "REMEMBER_ME": "Continuar conectado",
+    "FORGOT_PASSWORD": "Esqueceu a senha?"
+  },
+  "RECOVERY": {
+    "TITLE_EMAIL": "Digite seu email",
+    "EMAIL": "Email",
+    "TITLE_PIN": "Digite o Código",
+    "PIN": "Código recebido no email",
+    "TITLE_PASSWORD": "Digite a nova Senha",
+    "PASSWORD_PASS": "Senha",
+    "PASSWORD_CONFIRM": "Confirmação de Senha",
+    "PASSWORD": {
+      "USER.SUCCESS": "Senha atualizada com sucesso"
+    }
+  },
+  "MENU": {
+    "HOME": "Página Principal",
+    "BILL": "Conta",
+    "SPENT": "Gasto",
+    "CUSTOMER": "Usuários",
+    "OPPORTUNITIES": "Contas a Pagar",
+    "OPPORTUNITIES.INTEREST": "Aqui não teremos campos",
+    "PROFILE": "Aqui não teremos campos",
+    "USERS": "Usuário",
+    "COMPANIES": "Aqui não teremos campos",
+    "SETTINGS": "Configurações",
+    "TIPS": "Gastos",
+    "TIPS.CATEGORY": "Categorias",
+    "INVITES": "Cadastro",
+    "INVITE": "Cadastro do Usuário",
+    "GROUPS": "Categoria de Contas",
+    "PRODUCTS": "Gastos",
+    "PRODUCTS.CATEGORY": "Categorias de Gastos"
+  },
+  "CUSTOMER": {
+    "TITLE": "Usuários",
+    "LIST": "Lista de Usuários",
+    "NAME": "Nome",
+    "LAST_NAME": "Sobrenome",
+    "EMAIL": "Email",
+    "CELLPHONE": "Telefone",
+    "DOCUMENT": "Documento",
+    "CODE_INVITATION": "Código do Convite",
+    "CITY": "Cidade",
+    "STATE": "Estado/Distrito",
+    "COUNTRY": "País",
+    "MONTHLY_INCOME": "Renda Mensal",
+    "PROFESSION": "Profissão",
+    "STATUS": {
+      "ANALYZING": "Em análise",
+      "APPROVED": "Aprovado",
+      "DISAPPROVED": "Reprovado",
+      "BLOCKED": "Bloqueado"
+    },
+    "CHANGE.STATUS": {
+      "SUCCESS": "Status alterado com sucesso",
+      "ERROR": "Erro ao alterar status, contate um administrador"
+    },
+    "TABS": {
+      "DATA": "Dados Principais",
+      "INVITES": "Convites"
+    },
+    "CREATED": {
+      "SUCCESS": "Usuário criado com sucesso",
+      "ERROR": "Erro ao criar usuário, contate um administrador"
+    },
+    "UPDATE": {
+      "SUCCESS": "Usuário editado com sucesso",
+      "ERROR": "Erro ao editar usuário, contate um administrador"
+    },
+    "EDIT": {
+      "SUCCESS": "Usuário editado com sucesso",
+      "ERROR": "Erro ao editar usuário, contate um administrador"
+    },
+    "WITH": {
+      "CODE": {
+        "FOUND": "Não foi possível editar a empresa, código duplicado"
+      },
+      "DOCUMENT": {
+        "FOUND": "Não foi possível editar a empresa, CNPJ duplicado"
+      },
+      "EMAIL": {
+        "FOUND": "Não foi possível editar a empresa, email duplicado"
+      }
+    }
+  },
+  "CHANGE.STATUS.COMPANY": {
+    "SUCCESS": "Status alterado com sucesso",
+    "ERROR": "Erro ao alterar status, contate um administrador"
+  },
+  "COMPANY": {
+    "USER": {
+      "SECTOR": "Setor do Usuário"
+    },
+    "PROFILE": "Perfil de Usuário",
+    "TITLE": "Empresas",
+    "LIST": "Lista de Empresas",
+    "COMPANY_NAME": "Nome da Empresa",
+    "FANTASY_NAME": "Razão Social",
+    "COMPANY_EMAIL": "Email",
+    "DOCUMENT": "Documento",
+    "CNPJ": "CNPJ",
+    "COMPANY_CODE": "Código",
+    "COMPANY_TYPE": "Tipo da Empresa",
+    "MEDIA": "Foto da Empresa",
+    "STATUS": {
+      "ANALYZING": "Em análise",
+      "APPROVED": "Aprovado",
+      "DISAPPROVED": "Reprovado",
+      "BLOCKED": "Bloqueado"
+    },
+    "CHANGE.STATUS": {
+      "SUCCESS": "Status alterado com sucesso",
+      "ERROR": "Erro ao alterar status, contate um administrador"
+    },
+    "TABS": {
+      "DATA": "Dados Principais",
+      "INVITES": "Convites"
+    },
+    "CREATE": {
+      "SUCCESS": "Empresa criada com sucesso",
+      "ERROR": "Erro ao criar empresa, contate um administrador"
+    },
+    "EDIT": {
+      "SUCCESS": "Empresa editada com sucesso",
+      "ERROR": "Erro ao editar empresa, contate um administrador"
+    }
+  },
+  "SECTOR": {
+    "OWNER": "Proprietário",
+    "ADMINISTRATOR": "Administrador",
+    "OPPORTUNITIES": "Oportunidades"
+  },
+  "PROFILE": {
+    "MASTER": "Master",
+    "ADMINISTRATOR": "Administrador",
+    "CLIENT": "Cliente"
+  },
+  "TYPE": {
+    "HEAD": {
+      "OFFICE": "Matriz"
+    },
+    "BRANCH": {
+      "OFFICE": "Filial"
+    }
+  },
+  "OPPORTUNITY": {
+    "TITLE": "Contas a Pagar",
+    "LIST": "Lista de Contas",
+    "TITLE_OPPORTUNITY": "Título da Oportunidade",
+    "DATE": "Período da Conta",
+    "GROUP_OPPORTUNITY": "Grupo da Conta",
+    "FLAGS": "Etiquetas",
+    "GREAT_OPPORTUNITY": "Ótima Oportunidade",
+    "APPROVED_DOCUMENTATION": "Documentação Aprovada",
+    "DESCRIPTION": "Descrição da Conta",
+    "BEST_DEALS": "Melhores Ofertas",
+    "THUMB": "Imagem Principal",
+    "HIGHLIGHTED": "Em destaque",
+    "DISCOUNT_TYPE": "Tipo de Desconto",
+    "DISCOUNT_PERCENT": "Percentual (%)",
+    "DISCOUNT_VALUE": "Valor (R$)",
+    "DISCOUNT": "Desconto da Oportunidade",
+    "DISCOUNT_HINT": "Aplica desconto no valor total",
+    "ANALYZING": "Dentro do Prazo",
+    "APPROVED": "Pago",
+    "SOLD": "Vendido",
+    "RESERVED": "Reservado",
+    "REFUSED": "Atrasado",
+    "PRODUCT_SEARCH": "Procurar por Produtos...",
+    "TABS": {
+      "DATA": "Dados Principais",
+      "ADDRESS": "Endereço",
+      "PRODUCTS": "Produtos",
+      "DOCUMENTS": "Documentos"
+    },
+    "ADDRESS": {
+      "POSTAL_CODE": "CEP",
+      "LOCATION": "Logradouro",
+      "NUMBER": "Número",
+      "REGION": "Bairro",
+      "CITY": "Cidade",
+      "STATE": "Estado",
+      "COUNTRY": "País",
+      "MAPS": "Incorporar Mapa"
+    },
+    "DOCUMENTS": {
+      "TITLE": "Adicionar Documento",
+      "DESCRIPTION": "Descrição",
+      "TYPE": "Tipo de Documento"
+    },
+    "PRODUCTS": {
+      "TITLE": "Adicionar Gastos",
+      "SEARCH": "Filtrar por Nome",
+      "DISCOUNT_TYPE": "Tipo de Desconto",
+      "DISCOUNT_PERCENT": "Percentual (%)",
+      "DISCOUNT_VALUE": "Valor (R$)",
+      "DISCOUNT": "Desconto",
+      "AMOUNT": "Quantidade"
+    },
+    "CHANGE.STATUS": {
+      "SUCCESS": "Status alterado com sucesso",
+      "ERROR": "Erro ao alterar status, contate um administrador"
+    },
+    "CREATE": {
+      "SUCCESS": "Conta criada com sucesso",
+      "ERROR": "Erro ao criar conta, contate um administrador"
+    },
+    "EDIT": {
+      "SUCCESS": "Conta editada com sucesso",
+      "ERROR": "Erro ao editar conta, contate um administrador"
+    },
+    "GROUP": {
+      "CREATE": {
+        "SUCCESS": "Grupo criado com sucesso",
+        "ERROR": "Erro ao criar grupo, contate um administrador"
+      },
+      "EDIT": {
+        "SUCCESS": "Grupo editado com sucesso",
+        "ERROR": "Erro ao editar grupo, contate um administrador"
+      },
+      "DELETE": {
+        "SUCCESS": "Grupo excluído com sucesso",
+        "ERROR": "Erro ao excluir grupo, contate um administrador"
+      }
+    }
+  },
+  "TIP": {
+    "TITLE": "Gasto",
+    "LIST": "Lista de Gastos",
+    "TITLE_TIP": "Título do Gasto",
+    "DESCRIPTION": "Descrição do Gasto",
+    "CATEGORY_TIP": "Categoria do Gasto",
+    "CATEGORY_HIGHLIGHTED": "Em destaque",
+    "MEDIA": "Foto do Gasto",
+    "CREATE": {
+      "SUCCESS": "Gasto criado com sucesso",
+      "ERROR": "Erro ao criar gasto, contate um administrador"
+    },
+    "EDIT": {
+      "SUCCESS": "Gasto editado com sucesso",
+      "ERROR": "Erro ao editar gasto, contate um administrador"
+    },
+    "CATEGORY": {
+      "TITLE": "Categoria do Gasto",
+      "LIST": "Lista de Categorias de Gastos",
+      "CATEGORY": "Nome da Categoria",
+      "STATUS": "Status",
+      "CREATE": {
+        "SUCCESS": "Categoria de gasto criada com sucesso",
+        "ERROR": "Erro ao criar categoria de gasto, contate um administrador"
+      },
+      "EDIT": {
+        "SUCCESS": "Categoria de gasto editada com sucesso",
+        "ERROR": "Erro ao editar categoria de gasto, contate um administrador"
+      }
+    }
+  },
+  "PRODUCT": {
+    "TITLE": "Gasto",
+    "LIST": "Lista de Gastos",
+    "PRODUCT": "Nome do Gasto",
+    "DESCRIPTION": "Descrição do Gasto",
+    "CATEGORY_PRODUCT": "Categoria do Gasto",
+    "PRICE": "Valor",
+    "DISCOUNT_TYPE": "Tipo de Desconto",
+    "DISCOUNT_PERCENT": "Percentual (%)",
+    "DISCOUNT_VALUE": "Valor (R$)",
+    "DISCOUNT": "Desconto",
+    "MEDIA": "Fotos do Produto",
+    "TABS": {
+      "DATA": "Dados Principais",
+      "DOCUMENTS": "Documentos"
+    },
+    "CREATE": {
+      "SUCCESS": "Gasto criado com sucesso",
+      "ERROR": "Erro ao criar gasto, contate um administrador"
+    },
+    "EDIT": {
+      "SUCCESS": "Gasto editado com sucesso",
+      "ERROR": "Erro ao editar gasto, contate um administrador"
+    },
+    "CATEGORY": {
+      "TITLE": "Categoria de Gastos",
+      "LIST": "Lista de Categorias de Gastos",
+      "CATEGORY": "Nome da Categoria",
+      "STATUS": "Status",
+      "CREATE": {
+        "SUCCESS": "Categoria de gasto criada com sucesso",
+        "ERROR": "Erro ao criar categoria de gasto, contate um administrador"
+      },
+      "UPDATE": {
+        "SUCCESS": "Categoria de gasto editada com sucesso",
+        "ERROR": "Erro ao editar categoria de gasto, contate um administrador"
+      }
+    }
+  },
+  "INVITE": {
+    "TITLE": "Convites",
+    "LIST": "Isso Vai embora",
+    "NAME": "Nome",
+    "EMAIL": "E-mail",
+    "PHONE": "Telefone",
+    "DATE": "Data do convite",
+    "COMPANY": "Empresa",
+    "INVITED_BY": "Convidado por",
+    "FAMILY": "É familiar",
+    "FAMILIAR": "Familiar",
+    "YES": "Sim",
+    "NO": "Não"
+  },
+  "GROUP": {
+    "TITLE": "Grupo",
+    "LIST": "Lista de Grupos de Contas",
+    "GROUP": "Grupo de Contas"
+  },
+  "PASSWORD": {
+    "FAILED.ATTEMPTS": "Nova senha não pode ser igual a antiga"
+  },
+  "PROCESS.REVOKE.PASSWORD.SUCCESS": "Foi enviado um email com seu código de recuperação",
+  "VERIFY.PIN.CODE.RECOVERY.UNAUTHORIZED": "Código inválido",
+  "VALIDATOR.FIELDS.ERROR": "Campos inválidos",
+
+  "CREATE": {
+    "COMPANY": {
+      "SUCCESS": "Empresa criada com sucesso",
+      "ERROR": "Erro ao criar empresa, contate um administrador"
+    }
+  },
+  "UPDATE": {
+    "COMPANY": {
+      "SUCCESS": "Empresa editada com sucesso",
+      "ERROR": "Erro ao editar empresa, contate um administrador"
+    }
+  }
+}

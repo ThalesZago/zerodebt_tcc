@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideNavSize()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <h1>{{ activeRoute }}</h1>
+
+    <div class="spacer"></div>
+
+    <div [formGroup]="oForm" style="font-size: 0.6em">
+      <button mat-icon-button [routerLink]="'users/edit/' + user.id">
+        <mat-icon> person </mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

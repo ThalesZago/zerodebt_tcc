@@ -1,0 +1,155 @@
+<form class="container" [formGroup]="form">
+  <div fxLayout="row" fxLayoutAlign="center flex-start" fxLayoutGap="20px">
+    <div fxLayout="column" fxFlex="calc(50% - 20px)">
+      <mat-form-field appearance="fill" fxFlex="auto">
+        <mat-label>{{ 'COMPANY.COMPANY_NAME' | translate }}</mat-label>
+
+        <input #companyInput matInput required formControlName="company_name" />
+
+        <mat-icon matPrefix>person</mat-icon>
+
+        <mat-error *ngIf="company_name?.touched && company_name?.errors">
+          {{ 'ERRORS.REQUIRED' | translate }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex="auto">
+        <mat-label>{{ 'COMPANY.COMPANY_EMAIL' | translate }}</mat-label>
+
+        <input matInput required formControlName="email" />
+
+        <mat-icon matPrefix>email</mat-icon>
+
+        <mat-error *ngIf="email?.touched && email?.errors">
+          {{ 'ERRORS.REQUIRED' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" fxFlex="auto">
+        <mat-label>{{ 'COMPANY.CNPJ' | translate }}</mat-label>
+        
+        <input matInput required formControlName="document" mask="CPF_CNPJ" />
+        
+        <mat-icon matPrefix>folder_shared</mat-icon>
+        
+        <mat-error *ngIf="document?.touched && document?.errors">
+          {{ 'ERRORS.REQUIRED' | translate }}
+        </mat-error>
+      </mat-form-field>
+      <div fxLayout="column" fxFlex="auto">
+        <div
+          [ngClass]="
+            thumb?.touched && thumb?.errors
+              ? 'container_upload--error container_upload'
+              : 'container_upload'
+          "
+          appDragAndDrop
+          (fileDropped)="handleFileUpload($event)"
+        >
+          <span class="container_upload--title">
+            {{ 'COMPANY.MEDIA' | translate }}
+          </span>
+
+          <input
+            required
+            #fileInput
+            hidden
+            type="file"
+            (change)="handleFileUpload($event)"
+          />
+
+          <button
+            mat-fab
+            color="primary"
+            (click)="fileInput.click()"
+            type="button"
+          >
+            <mat-icon color="secondary">image</mat-icon>
+          </button>
+
+          <span class="container_upload--text">
+            {{ 'ACTIONS.DRAG_FILES' | translate }}
+          </span>
+        </div>
+
+        <mat-error
+          *ngIf="thumb?.touched && thumb?.errors"
+          class="container_error"
+        >
+          {{ 'ERRORS.REQUIRED' | translate }}
+        </mat-error>
+
+        <div
+          class="container_list"
+          *ngIf="thumb.value"
+          appDragAndDrop
+          (fileDropped)="handleFileUpload($event)"
+        >
+          <div class="container_list--item">
+            <img (click)="handleModal(thumb.value)" [src]="thumb.value" />
+
+            <button
+              type="button"
+              mat-mini-fab
+              color="link"
+              class="container_list--icon"
+              (click)="clearImage()"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column" fxFlex="calc(50% - 20px)">
+        <mat-form-field appearance="fill" fxFlex="auto">
+          <mat-label>{{ 'COMPANY.FANTASY_NAME' | translate }}</mat-label>
+
+          <input matInput required formControlName="fantasy_name" />
+
+          <mat-icon matPrefix>people</mat-icon>
+
+          <mat-error *ngIf="fantasy_name?.touched && fantasy_name?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="auto">
+          <mat-label>{{ 'COMPANY.COMPANY_CODE' | translate }}</mat-label>
+
+          <input matInput required formControlName="code" maxLength="5" />
+
+          <mat-icon matPrefix>pin</mat-icon>
+
+          <mat-error *ngIf="code?.touched && code?.errors">
+            {{ 'ERRORS.REQUIRED' | translate }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="auto" *ngIf="!oCompany">
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-label>{{ 'COMPANY.COMPANY_TYPE' | translate }}</mat-label>
+          <mat-select formControlName="type_company_id">
+            <mat-option [value]="oType.id" *ngFor="let oType of aType">
+              {{ oType.type | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="auto" *ngIf="!oCompany">
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-label>{{ 'COMPANY.USER.SECTOR' | translate }}</mat-label>
+          <mat-select formControlName="user_sectors" multiple>
+            <mat-option [value]="oUser.id" *ngFor="let oUser of aUser">
+              {{ oUser.sector_name | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="auto" *ngIf="!oCompany">
+          <mat-icon matPrefix>business</mat-icon>
+          <mat-label>{{ 'COMPANY.PROFILE' | translate }}</mat-label>
+          <mat-select formControlName="company_profiles" multiple>
+            <mat-option [value]="oProfile.id" *ngFor="let oProfile of aProfile">
+              {{ oProfile.profile | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+  </div>
+</form>
